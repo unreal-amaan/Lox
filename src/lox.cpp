@@ -1,4 +1,5 @@
 
+#include <cstddef>
 #include <fstream>
 #include <iostream>
 #include <iterator>
@@ -25,19 +26,20 @@ void lox::Lox::runFile(const std::string &path) {
 }
 
 void lox::Lox::run(const std::string &source) {
-  Scanner scanner(source);
-  scanner.scanTokens();
+  Scanner scanner(source, *this);
+  const auto & tokens = scanner.scanTokens();
+  scanner.printTokens();
 }
 
 // Error handling and Reporting
 
 // This error() function and its report() helper tells the user some syntax
 // error occurred on a given line
-void lox::Lox::error(int lineNumber, std::string message) {
+void lox::Lox::error(size_t lineNumber, std::string message) {
   report(lineNumber, "", message);
 }
 
-void lox::Lox::report(int lineNumber, std::string where, std::string message) {
+void lox::Lox::report(size_t lineNumber, std::string where, std::string message) {
   std::cerr << "[line " << lineNumber << " ] Error" << where << ": " << message
             << std::endl;
   hasError = true;

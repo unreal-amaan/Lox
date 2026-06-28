@@ -12,6 +12,7 @@ set(SOURCES
     src/main.cpp
     src/lox.cpp
     src/scanner.cpp
+    src/token.cpp
 )
 
 # Create executable

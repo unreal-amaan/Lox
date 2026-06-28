@@ -5,7 +5,6 @@
 #include <string>
 #include <variant>
 
-
 namespace lox {
 
 using Literal = std::variant<std::nullptr_t, double, bool, std::string>;
@@ -19,4 +18,7 @@ public:
 
   Token(TokenType type, std::string lexeme, Literal literal, std::size_t line);
 };
+
+std::ostream &operator<<(std::ostream &os, const Token &token);
+
 } // namespace lox
