@@ -133,7 +133,7 @@ bool lox::Scanner::match(const char expected) {
   return true;
 }
 
-void lox::Scanner::addToken(TokenType type, Literal literal) {
+void lox::Scanner::addToken(TokenType type, LiteralValue literal) {
   std::string text = sourceCode.substr(start, current - start);
   tokens.emplace_back(Token(type, text, literal, lineNumber));
 }

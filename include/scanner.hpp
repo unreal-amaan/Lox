@@ -49,7 +49,7 @@ private:
 
   void
   addToken(TokenType type,
-           Literal literal); // addToken function is responsible for filling the
+           LiteralValue literal); // addToken function is responsible for filling the
                              // tokens vectors with the Token information.
   bool match(const char expected); // the match looks at the next character to
                                    // determine if it is a two character token
