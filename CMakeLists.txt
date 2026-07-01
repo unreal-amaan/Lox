@@ -13,6 +13,7 @@ set(SOURCES
     src/lox.cpp
     src/scanner.cpp
     src/token.cpp
+    src/ASTPrinter.cpp
 )
 
 # Create executable
@@ -31,5 +32,4 @@ target_compile_options(lox PRIVATE
     -Wextra
     -Wpedantic
     -Wconversion
-    -Wshadow
 )
